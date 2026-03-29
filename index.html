@@ -25,20 +25,26 @@
   --shadow-lg:0 8px 32px rgba(0,0,0,.12);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:1.6;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{
+  font-family:var(--font);background:var(--bg);color:var(--body);line-height:1.6;
+  overflow-x:hidden;
+  max-width:860px;
+  width:100%;
+  margin:0 auto;
+}
 
 /* ── HERO ── */
 .hero {
   background:linear-gradient(150deg,#042a1e 0%,#064030 40%,#0d5c42 80%,#1a7a5a 100%);
-  padding:64px 24px 80px; text-align:center; position:relative; overflow:hidden;
+  padding:32px 20px 48px; text-align:center; position:relative; overflow:hidden;
 }
 .hero::before {
   content:'';position:absolute;inset:0;
   background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.018) 40px,rgba(255,255,255,.018) 80px);
 }
 .hero::after {
-  content:'';position:absolute;bottom:-1px;left:0;right:0;height:56px;
+  content:'';position:absolute;bottom:-1px;left:0;right:0;height:36px;
   background:var(--bg);clip-path:ellipse(55% 100% at 50% 100%);
 }
 .hero-label {
@@ -57,7 +63,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
 }
 .hero h1 {
   font-family:var(--serif);
-  font-size:clamp(26px,5vw,52px);font-weight:900;color:#fff;
+  font-size:clamp(22px,4vw,40px);font-weight:900;color:#fff;
   letter-spacing:-.02em;position:relative;line-height:1.15;margin-bottom:8px;
 }
 .hero h1 em{color:var(--teal-m);font-style:normal;}
@@ -66,10 +72,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
   color:rgba(255,255,255,.6);position:relative;margin-bottom:32px;
   font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;
 }
-.hero-stats{display:flex;justify-content:center;flex-wrap:wrap;gap:0;position:relative;margin-bottom:28px;}
-.h-stat{padding:0 24px;text-align:center;border-right:1px solid rgba(255,255,255,.15);}
+.hero-stats{display:flex;justify-content:center;flex-wrap:wrap;gap:0;position:relative;margin-bottom:20px;}
+.h-stat{padding:0 16px;text-align:center;border-right:1px solid rgba(255,255,255,.15);}
 .h-stat:last-child{border:none;}
-.h-stat-n{font-size:30px;font-weight:700;color:#fff;font-family:var(--mono);line-height:1;}
+.h-stat-n{font-size:24px;font-weight:700;color:#fff;font-family:var(--mono);line-height:1;}
 .h-stat-l{font-size:10px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em;margin-top:4px;}
 .hero-flow {
   display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;
@@ -84,15 +90,15 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
 .hero-arrow{color:rgba(255,255,255,.3);padding:0 6px;font-size:14px;}
 
 /* ── NAV ── */
-.nav-wrap{background:#fff;border-bottom:1.5px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.06);}
-.nav-inner{max-width:1000px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;}
+.nav-wrap{background:#fff;border-bottom:1.5px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 10px rgba(0,0,0,.06);width:100%;}
+.nav-inner{max-width:860px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;}
 .nav-inner::-webkit-scrollbar{display:none;}
 .nav-btn{padding:14px 18px;font-size:13px;font-weight:500;color:var(--gray);background:none;border:none;border-bottom:2.5px solid transparent;cursor:pointer;white-space:nowrap;font-family:var(--font);transition:all .18s;flex-shrink:0;}
 .nav-btn:hover{color:var(--body);}
 .nav-btn.active{color:var(--teal);border-bottom-color:var(--teal);font-weight:700;}
 
 /* ── LAYOUT ── */
-.main{max-width:1000px;margin:0 auto;padding:32px 16px 100px;}
+.main{max-width:860px;margin:0 auto;padding:24px 14px 80px;}
 .tab-sec{display:none;animation:fadeUp .22s ease;}
 .tab-sec.active{display:block;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
@@ -232,7 +238,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
 .sem-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
 
 /* ── SCROLL TOP / MODAL ── */
-.scroll-top{position:fixed;bottom:24px;right:24px;width:42px;height:42px;background:var(--teal);color:#fff;border-radius:50%;border:none;cursor:pointer;font-size:18px;box-shadow:0 4px 16px rgba(29,158,117,.4);display:none;align-items:center;justify-content:center;z-index:300;transition:transform .15s;}
+.scroll-top{position:sticky;float:right;bottom:24px;right:12px;width:38px;height:38px;background:var(--teal);color:#fff;border-radius:50%;border:none;cursor:pointer;font-size:16px;box-shadow:0 4px 16px rgba(29,158,117,.4);display:none;align-items:center;justify-content:center;z-index:300;transition:transform .15s;margin-top:-60px;}
 .scroll-top:hover{transform:scale(1.08);}
 .scroll-top.show{display:flex;}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;align-items:center;justify-content:center;padding:16px;}
@@ -271,7 +277,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
              radial-gradient(ellipse 60% 80% at 80% 40%,rgba(55,138,221,.12),transparent 60%);
 }
 .dna-inner {
-  max-width:1000px;margin:0 auto;
+  max-width:860px;margin:0 auto;
   display:grid;grid-template-columns:1fr auto 1fr;
   align-items:stretch;position:relative;z-index:2;
 }
@@ -520,6 +526,68 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
       <span class="v-tag">🏠 선교적 가정교회</span>
       <span class="v-tag">👥 목장 중심 제자훈련</span>
       <span class="v-tag">📖 Life 시리즈</span>
+    </div>
+  </div>
+
+  <!-- ── 교인 멤버십 안내 ── -->
+  <div class="sec-lbl">📋 교인 멤버십 안내</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
+
+    <!-- 등록교인 -->
+    <div style="background:#fff;border-radius:var(--r-lg);padding:20px;border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--blue);border-radius:var(--r-lg) var(--r-lg) 0 0;"></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🙋</div>
+        <div>
+          <div style="font-family:var(--serif);font-size:15px;font-weight:700;color:var(--blue-d);">등록교인</div>
+          <div style="font-size:10px;font-family:var(--mono);color:var(--gray);letter-spacing:.08em;">REGISTERED MEMBER</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--body);line-height:1.9;padding:10px 14px;background:var(--blue-l);border-radius:var(--r);">
+        <div style="display:flex;align-items:center;gap:8px;"><span style="color:var(--blue);font-weight:700;">✓</span><span>교회 <strong>등록만으로</strong> 환영받습니다</span></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span style="color:var(--blue);font-weight:700;">✓</span><span>예배·목장·삶공부 참여 가능</span></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span style="color:var(--blue);font-weight:700;">✓</span><span>별도 조건 없음</span></div>
+      </div>
+    </div>
+
+    <!-- 회원교인 -->
+    <div style="background:#fff;border-radius:var(--r-lg);padding:20px;border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--teal);border-radius:var(--r-lg) var(--r-lg) 0 0;"></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--teal-l);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🌿</div>
+        <div>
+          <div style="font-family:var(--serif);font-size:15px;font-weight:700;color:var(--teal-d);">회원교인</div>
+          <div style="font-size:10px;font-family:var(--mono);color:var(--gray);letter-spacing:.08em;">COVENANT MEMBER</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--body);line-height:1.9;padding:10px 14px;background:var(--teal-l);border-radius:var(--r);">
+        <div style="display:flex;align-items:center;gap:8px;"><span style="color:var(--teal);font-weight:700;">①</span><span><strong>예수 영접</strong> — 그리스도를 구주와 주님으로 고백</span></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span style="color:var(--teal);font-weight:700;">②</span><span><strong>목장 소속</strong> — 가정교회 목장 등록</span></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span style="color:var(--teal);font-weight:700;">③</span><span><strong>생명의 삶</strong> 이수 완료</span></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span style="color:var(--teal);font-weight:700;">④</span><span><strong>침례</strong> <span style="font-size:11px;color:var(--gray);">βαπτίζω · 밥티조</span></span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 등록 → 회원 흐름 화살표 -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin:-8px 0 20px;flex-wrap:wrap;">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:var(--blue-l);border:1px solid var(--blue);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--blue-d);">
+      🙋 등록교인
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-size:10px;color:var(--gray);font-family:var(--mono);">목장 + 생삶 + 영접 + 침례</div>
+      <div style="font-size:18px;color:var(--teal);">→</div>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:var(--teal-l);border:1px solid var(--teal);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--teal-d);">
+      🌿 회원교인
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+      <div style="font-size:10px;color:var(--gray);font-family:var(--mono);">훈련 + 사역 헌신</div>
+      <div style="font-size:18px;color:var(--amber);">→</div>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:6px;background:var(--amber-l);border:1px solid var(--amber);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--amber-d);">
+      👑 목자 · 사역자
     </div>
   </div>
 
@@ -1325,46 +1393,59 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
 <div id="semester" class="tab-sec">
 
   <div class="sec-lbl">연간 학기 운영 계획</div>
-  <div class="semester-grid">
-    <div class="sem-card">
-      <div class="sem-title">🌸 봄 학기</div>
+
+  <!-- 봄·가을 메인 2학기 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+    <div class="sem-card" style="border-top:3px solid var(--teal);">
+      <div class="sem-title">🌸 봄 학기 <span style="font-size:10px;font-weight:400;color:var(--gray);font-family:var(--mono);">SPRING</span></div>
       <div class="sem-period">2월 – 5월</div>
-      <div class="sem-item"><span class="sem-dot" style="background:var(--teal);"></span><strong>생명의 삶</strong> (2월 개강)</div>
+      <div class="sem-item"><span class="sem-dot" style="background:var(--teal);"></span><strong>생명의 삶</strong> <span style="font-size:11px;color:var(--teal);font-weight:600;">2월 개강</span></div>
       <div class="sem-item"><span class="sem-dot" style="background:var(--blue);"></span>예수님을 따르는 삶</div>
       <div class="sem-item"><span class="sem-dot" style="background:var(--blue);"></span>새교회의 삶</div>
-      <div class="sem-item"><span class="sem-dot" style="background:var(--gray);"></span>선택 과정 (3명↑)</div>
-    </div>
-    <div class="sem-card blue">
-      <div class="sem-title">☀️ 여름 학기</div>
-      <div class="sem-period">6월 – 8월</div>
-      <div class="sem-item"><span class="sem-dot" style="background:var(--teal);"></span><strong>생명의 삶</strong> (6월 개강)</div>
       <div class="sem-item"><span class="sem-dot" style="background:var(--purp);"></span>새로운 삶</div>
       <div class="sem-item"><span class="sem-dot" style="background:var(--purp);"></span>경건의 삶</div>
       <div class="sem-item"><span class="sem-dot" style="background:var(--gray);"></span>선택 과정 (3명↑)</div>
     </div>
-    <div class="sem-card amber">
-      <div class="sem-title">🍂 가을 학기</div>
+    <div class="sem-card" style="border-top:3px solid var(--amber);">
+      <div class="sem-title">🍂 가을 학기 <span style="font-size:10px;font-weight:400;color:var(--gray);font-family:var(--mono);">FALL</span></div>
       <div class="sem-period">9월 – 12월</div>
-      <div class="sem-item"><span class="sem-dot" style="background:var(--teal);"></span><strong>생명의 삶</strong> (9월 개강)</div>
+      <div class="sem-item"><span class="sem-dot" style="background:var(--teal);"></span><strong>생명의 삶</strong> <span style="font-size:11px;color:var(--teal);font-weight:600;">9월 개강</span></div>
       <div class="sem-item"><span class="sem-dot" style="background:var(--blue);"></span>예수님을 따르는 삶</div>
       <div class="sem-item"><span class="sem-dot" style="background:var(--blue);"></span>새교회의 삶</div>
+      <div class="sem-item"><span class="sem-dot" style="background:var(--purp);"></span>새로운 삶</div>
+      <div class="sem-item"><span class="sem-dot" style="background:var(--purp);"></span>경건의 삶</div>
       <div class="sem-item"><span class="sem-dot" style="background:var(--gray);"></span>선택 과정 (3명↑)</div>
     </div>
   </div>
 
-  <div class="sec-lbl">수시 진행 (1:1 과정)</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
-    <div style="background:#fff;border-radius:var(--r-lg);padding:20px;border:1.5px dashed var(--teal-m);">
-      <div style="font-size:22px;margin-bottom:10px;">🤝</div>
-      <div style="font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:4px;">확신의 삶</div>
-      <div style="font-size:11px;font-family:var(--mono);color:var(--gray);margin-bottom:8px;">Assured Life · 7주</div>
-      <div style="font-size:12px;color:var(--gray);line-height:1.7;">목자가 판단하여 생명의 삶 전후 언제든. 목자 ↔ 목원 1:1 진행. Survival Kit (랄프 네이버) 교재. 구원·말씀·기도·승리·인도의 5가지 확신.</div>
+  <!-- 여름: 생명의 삶 단독 개강 -->
+  <div style="background:linear-gradient(90deg,var(--teal-l),#f0fdf8);border-radius:var(--r-lg);padding:14px 20px;border:1px solid var(--teal-m);display:flex;align-items:center;gap:16px;margin-bottom:10px;">
+    <div style="font-size:28px;flex-shrink:0;">☀️</div>
+    <div>
+      <div style="font-size:13px;font-weight:700;color:var(--teal-d);margin-bottom:2px;">여름 특별 개강 <span style="font-size:10px;font-family:var(--mono);font-weight:400;color:var(--gray);">SUMMER · 6월</span></div>
+      <div style="font-size:12px;color:var(--teal-d);line-height:1.6;"><strong>생명의 삶만</strong> 단독 개강 — 연 3회 (봄·여름·가을) 중 여름 추가 개강. 다른 과정은 운영하지 않습니다.</div>
     </div>
-    <div style="background:#fff;border-radius:var(--r-lg);padding:20px;border:1.5px dashed var(--amber);">
-      <div style="font-size:22px;margin-bottom:10px;">👑</div>
-      <div style="font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:4px;">하나님을 경험하는 삶</div>
-      <div style="font-size:11px;font-family:var(--mono);color:var(--gray);margin-bottom:8px;">Experiencing God Life · 13주</div>
-      <div style="font-size:12px;color:var(--gray);line-height:1.7;">목자 임명 전 대표목사와 예비 목자가 1:1 진행. Experiencing God (헨리 블랙커비) 교재. 소명 확인·목회 철학 공유·가정교회 개척 비전.</div>
+    <div style="flex-shrink:0;background:var(--teal);color:#fff;border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;white-space:nowrap;">6월 개강</div>
+  </div>
+
+  <!-- 수시 1:1 -->
+  <div class="sec-lbl" style="margin-top:20px;">🔄 수시 진행 — 1:1 과정 (학기 구분 없음)</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
+    <div style="background:#fff;border-radius:var(--r-lg);padding:18px;border:1.5px dashed var(--teal-m);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-m));"></div>
+      <div style="font-size:22px;margin-bottom:8px;">🤝</div>
+      <div style="font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:2px;">확신의 삶</div>
+      <div style="font-size:11px;font-family:var(--mono);color:var(--gray);margin-bottom:8px;">Assured Life · 7주 · 1:1</div>
+      <div style="font-size:12px;color:var(--gray);line-height:1.7;">목자가 판단하여 <strong>언제든 수시</strong> 진행. 목자 ↔ 목원 1:1. Survival Kit (랄프 네이버) 교재. 구원·말씀·기도·승리·인도의 5가지 확신.</div>
+      <div style="margin-top:10px;display:inline-flex;align-items:center;gap:5px;background:var(--teal-l);color:var(--teal-d);border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;">⏱ 생명의 삶 전후 언제든</div>
+    </div>
+    <div style="background:#fff;border-radius:var(--r-lg);padding:18px;border:1.5px dashed var(--amber);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--gold));"></div>
+      <div style="font-size:22px;margin-bottom:8px;">👑</div>
+      <div style="font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:2px;">하나님을 경험하는 삶</div>
+      <div style="font-size:11px;font-family:var(--mono);color:var(--gray);margin-bottom:8px;">Experiencing God Life · 13주 · 1:1</div>
+      <div style="font-size:12px;color:var(--gray);line-height:1.7;">목자 임명 전 <strong>대표목사 ↔ 예비 목자 1:1</strong> 수시 진행. Experiencing God (헨리 블랙커비) 교재. 소명 확인·목회 철학·가정교회 개척 비전.</div>
+      <div style="margin-top:10px;display:inline-flex;align-items:center;gap:5px;background:var(--amber-l);color:var(--amber-d);border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;">⏱ 목자 임명 전 수시</div>
     </div>
   </div>
 
@@ -1374,8 +1455,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
       <div>
         <div style="font-size:13px;font-weight:700;color:var(--teal-d);margin-bottom:10px;">✅ 개강 가능</div>
         <div style="font-size:12px;line-height:2.2;">
-          <div>• <strong>생명의 삶</strong>: 인원 제한 없음</div>
-          <div>• <strong>그룹 과정</strong>: 3명 이상 등록 시</div>
+          <div>• <strong>생명의 삶</strong>: 인원 제한 없음 · 연 3회</div>
+          <div>• <strong>그룹 과정</strong>: 3명 이상 · 봄·가을만</div>
           <div>• <strong>1:1 과정</strong>: 수시 (목자/대표목사 판단)</div>
         </div>
       </div>
@@ -1410,21 +1491,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
   <div style="background:#fff;border-radius:var(--r-lg);padding:20px;border:1px solid var(--border);margin-bottom:20px;">
     <div style="font-size:12px;line-height:2.3;">
       <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">01</span><span>목자가 되기 위해 <strong>필수 과정 전체 이수</strong>를 권장합니다.</span></div>
-      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">02</span><span><strong>생명의 삶</strong>은 대표목사 직접 인도. 인원 제한 없음. 연 3회 개강 (봄·여름·가을).</span></div>
-      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">03</span><span><strong>확신의 삶</strong>은 목자가 판단하여 생명의 삶 전후 언제든 목원과 1:1 진행. 최적 시기는 생명의 삶 직후.</span></div>
-      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">04</span><span><strong>새로운 삶 · 새교회의 삶 · 예수님을 따르는 삶</strong>은 <strong>선택필수</strong> — 셋 중 하나만 이수하면 되나 가능한 셋 모두 이수하면 좋습니다. 순서와 선택은 목자·대표목사와 상의.</span></div>
-      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">05</span><span>나머지 그룹 과정(<strong>새교회·새로운·경건의 삶</strong>)은 3명 이상 등록 시 개강. 순서대로 이수 권장.</span></div>
-      <div style="display:flex;gap:8px;padding:6px 0;"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">06</span><span><strong>하나님을 경험하는 삶(하경삶)</strong>은 대표목사와 예비 목자가 1:1로 목자 임명 전 진행.</span></div>
+      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">02</span><span><strong>생명의 삶</strong>은 대표목사 직접 인도. 인원 제한 없음. <strong>연 3회 개강</strong> — 봄(2월)·여름(6월)·가을(9월).</span></div>
+      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">03</span><span><strong>확신의 삶</strong>은 학기와 무관하게 <strong>수시</strong>. 목자가 판단하여 목원과 1:1 진행. 생명의 삶 전후 언제든.</span></div>
+      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">04</span><span><strong>새로운 삶 · 새교회의 삶 · 예수님을 따르는 삶</strong>은 <strong>선택필수</strong> — 셋 중 하나만 이수하면 되나 가능한 셋 모두 이수하면 좋습니다. 봄·가을 학기 운영.</span></div>
+      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">05</span><span>그룹 과정(<strong>새교회·새로운·경건의·예따삶</strong>)은 <strong>봄·가을 학기만</strong> 운영, 3명 이상 등록 시 개강.</span></div>
+      <div style="display:flex;gap:8px;padding:6px 0;"><span style="font-weight:700;font-family:var(--mono);color:var(--teal);min-width:24px;">06</span><span><strong>하나님을 경험하는 삶(하경삶)</strong>은 학기와 무관하게 <strong>수시</strong>. 대표목사 ↔ 예비 목자 1:1, 목자 임명 전 진행.</span></div>
     </div>
   </div>
 
   <div class="sec-lbl">선택 과정 운영 원칙</div>
   <div style="background:#fff;border-radius:var(--r-lg);padding:20px;border:1px solid var(--border);margin-bottom:20px;">
     <div style="font-size:12px;line-height:2.3;">
-      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--blue);min-width:24px;">01</span><span>봄·여름·가을 학기에 <strong>필요한 사람이 있을 때</strong> 과정을 열어 참여.</span></div>
+      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--blue);min-width:24px;">01</span><span><strong>봄·가을 학기</strong>에만 운영 — 필요한 사람이 있을 때 과정을 열어 참여 (여름 학기 선택 과정 없음).</span></div>
       <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--blue);min-width:24px;">02</span><span><strong>3명 이상</strong> 등록 시 개강. 미달 시 다음 학기로 연기.</span></div>
       <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-weight:700;font-family:var(--mono);color:var(--blue);min-width:24px;">03</span><span>삶의 상황과 필요에 따라 <strong>자유롭게 선택</strong>. 필수 과정과 병행 가능.</span></div>
-      <div style="display:flex;gap:8px;padding:6px 0;"><span style="font-weight:700;font-family:var(--mono);color:var(--blue);min-width:24px;">04</span><span>수강 희망 시 행정 간사 박보라 (<a href="mailto:admin.GMCseattle@gmail.com" style="color:var(--blue);">admin.GMCseattle@gmail.com</a>)나 교회 사무실로 연락 — <strong>425-350-0191</strong></span></div>
+      <div style="display:flex;gap:8px;padding:6px 0;"><span style="font-weight:700;font-family:var(--mono);color:var(--blue);min-width:24px;">04</span><span>수강 희망 시 행정 간사 박보라 (<a href="/cdn-cgi/l/email-protection#e283868f8b8ccca5afa191878396968e87a2858f838b8ecc818d8f" style="color:var(--blue);"><span class="__cf_email__" data-cfemail="553431383c3b7b12181626303421213930153238343c397b363a38">[email&#160;protected]</span></a>)나 교회 사무실로 연락 — <strong>425-350-0191</strong></span></div>
     </div>
   </div>
 
@@ -1479,7 +1560,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:
 
 <button class="scroll-top" id="scrollBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── TAB ── */
 function showTab(id){
   document.querySelectorAll('.tab-sec').forEach(s=>s.classList.remove('active'));
