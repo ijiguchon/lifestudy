@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>삶 공부 수강 신청 — 시애틀지구촌교회</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal:#1D9E75; --teal-l:#E1F5EE; --teal-d:#085041; --teal-m:#5DCAA5;
+  --blue:#378ADD; --blue-l:#E6F1FB; --blue-d:#0C447C;
+  --amber:#BA7517; --amber-l:#FAEEDA; --amber-d:#412402;
+  --gray:#888780; --gray-l:#F4F3EE; --gray-d:#2C2C2A; --gray-m:#D3D1C7;
+  --body:#3D3D3A; --bg:#F7F6F1; --white:#fff; --border:#E4E2DA;
+  --font:'Noto Sans KR',sans-serif;
+  --serif:'Noto Serif KR',serif;
+  --mono:'DM Mono',monospace;
+  --r:8px; --r-lg:14px;
+  --shadow:0 2px 12px rgba(0,0,0,.07);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--body);line-height:1.6;max-width:860px;width:100%;margin:0 auto;}
+
+/* HERO */
+.hero{background:linear-gradient(150deg,#042a1e 0%,#064030 40%,#0d5c42 80%,#1a7a5a 100%);padding:36px 24px 52px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.018) 40px,rgba(255,255,255,.018) 80px);}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:36px;background:var(--bg);clip-path:ellipse(55% 100% at 50% 100%);}
+.hero-label{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:500;letter-spacing:.18em;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.18);padding:5px 16px;border-radius:20px;margin-bottom:16px;font-family:var(--mono);position:relative;}
+.hero h1{font-family:var(--serif);font-size:clamp(22px,4vw,38px);font-weight:900;color:#fff;letter-spacing:-.02em;position:relative;line-height:1.2;margin-bottom:8px;}
+.hero h1 em{color:var(--teal-m);font-style:normal;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,.6);position:relative;margin-bottom:0;}
+
+/* MAIN */
+.main{padding:32px 20px 80px;}
+
+/* CARD */
+.card{background:#fff;border-radius:var(--r-lg);border:1px solid var(--border);box-shadow:var(--shadow);padding:28px 28px;margin-bottom:20px;}
+.card-title{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--teal-d);margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid var(--teal-l);display:flex;align-items:center;gap:8px;}
+
+/* FORM */
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:12px;font-weight:700;color:var(--gray-d);margin-bottom:6px;letter-spacing:.03em;}
+.field label span.req{color:var(--teal);margin-left:3px;}
+.field input,.field select,.field textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--font);font-size:13px;color:var(--body);background:#fff;outline:none;transition:border-color .18s,box-shadow .18s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(29,158,117,.1);}
+.field textarea{resize:vertical;min-height:80px;line-height:1.6;}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888780' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+
+/* CHECKBOX GROUP */
+.check-group{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+.check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--r);border:1.5px solid var(--border);background:#fff;cursor:pointer;transition:.18s;}
+.check-item:hover{border-color:var(--teal-m);background:var(--teal-l);}
+.check-item input[type=checkbox],.check-item input[type=radio]{width:16px;height:16px;accent-color:var(--teal);flex-shrink:0;margin-top:2px;cursor:pointer;}
+.check-item.checked{border-color:var(--teal);background:var(--teal-l);}
+.check-label{font-size:13px;line-height:1.5;}
+.check-label strong{color:var(--teal-d);}
+.check-label span{display:block;font-size:11px;color:var(--gray);font-family:var(--mono);margin-top:1px;}
+
+/* BADGE */
+.badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:8px;font-weight:600;margin-left:6px;vertical-align:middle;}
+.badge-req{background:var(--teal-l);color:var(--teal-d);}
+.badge-sel{background:var(--blue-l);color:var(--blue-d);}
+.badge-anytime{background:var(--amber-l);color:var(--amber-d);}
+
+/* SECTION DIVIDER */
+.sec-div{font-size:10.5px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.14em;margin:24px 0 12px;padding-bottom:6px;border-bottom:1.5px solid var(--border);}
+
+/* SUBMIT BTN */
+.btn-submit{width:100%;padding:15px;background:linear-gradient(135deg,var(--teal-d),var(--teal));color:#fff;border:none;border-radius:var(--r-lg);font-family:var(--serif);font-size:16px;font-weight:700;cursor:pointer;letter-spacing:.02em;transition:.2s;box-shadow:0 4px 16px rgba(29,158,117,.3);}
+.btn-submit:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(29,158,117,.4);}
+.btn-submit:active{transform:translateY(0);}
+
+/* SUCCESS */
+.success-box{display:none;background:linear-gradient(135deg,var(--teal-d),#0d5c42);border-radius:var(--r-lg);padding:40px 28px;text-align:center;color:#fff;margin-bottom:20px;}
+.success-box.show{display:block;animation:fadeUp .3s ease;}
+.success-icon{font-size:48px;margin-bottom:12px;}
+.success-box h3{font-family:var(--serif);font-size:22px;font-weight:700;margin-bottom:8px;}
+.success-box p{font-size:13px;color:rgba(255,255,255,.75);line-height:1.7;}
+
+/* INFO BOX */
+.info-box{background:var(--teal-l);border-radius:var(--r-lg);padding:16px 20px;border-left:4px solid var(--teal);margin-bottom:20px;font-size:12px;color:var(--teal-d);line-height:1.8;}
+.info-box strong{color:var(--teal-d);}
+
+/* FOOTER */
+.footer{text-align:center;padding:20px;font-size:12px;color:var(--gray);border-top:1px solid var(--border);margin-top:8px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:560px){.card{padding:20px 16px;}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">GMC SEATTLE · 시애틀지구촌교회</div>
+  <h1>삶 공부 <em>수강 신청</em></h1>
+  <p class="hero-sub">Life Series Registration · Genesis 13:14 × 마태복음 28:19</p>
+</div>
+
+<div class="main">
+
+  <!-- 안내 -->
+  <div class="info-box">
+    📌 <strong>신청 안내</strong> — 신청서 제출 후 행정 간사가 확인 후 연락드립니다.<br>
+    문의: <strong>admin.gmcseattle@gmail.com</strong> · <strong>425-350-0191</strong>
+  </div>
+
+  <!-- 성공 메시지 -->
+  <div class="success-box" id="successBox">
+    <div class="success-icon">✅</div>
+    <h3>신청이 완료되었습니다!</h3>
+    <p>행정 간사 박보라 자매님께서<br>확인 후 곧 연락드리겠습니다.<br><br>
+    문의: admin.gmcseattle@gmail.com · 425-350-0191</p>
+  </div>
+
+  <!-- FORM -->
+  <form id="regForm" action="https://formspree.io/f/admin.gmcseattle@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="[삶공부 수강신청] 새 신청이 접수되었습니다">
+    <input type="hidden" name="_replyto" id="replyto">
+
+    <!-- 개인 정보 -->
+    <div class="card">
+      <div class="card-title">👤 신청자 정보</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="field">
+          <label>이름 (한글) <span class="req">*</span></label>
+          <input type="text" name="이름" placeholder="홍길동" required>
+        </div>
+        <div class="field">
+          <label>영문 이름</label>
+          <input type="text" name="영문이름" placeholder="Gildong Hong">
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="field">
+          <label>연락처 <span class="req">*</span></label>
+          <input type="tel" name="연락처" placeholder="425-000-0000" required>
+        </div>
+        <div class="field">
+          <label>이메일</label>
+          <input type="email" name="이메일" id="emailInput" placeholder="email@gmail.com" oninput="document.getElementById('replyto').value=this.value">
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="field">
+          <label>소속 목장</label>
+          <input type="text" name="소속목장" placeholder="목장 이름 또는 미소속">
+        </div>
+        <div class="field">
+          <label>교인 구분 <span class="req">*</span></label>
+          <select name="교인구분" required>
+            <option value="">선택해 주세요</option>
+            <option>등록교인</option>
+            <option>회원교인</option>
+            <option>처음 방문 / VIP</option>
+            <option>기타</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- 필수 과정 -->
+    <div class="card">
+      <div class="card-title">✅ 필수 과정 신청 <span style="font-size:11px;font-weight:400;color:var(--gray);font-family:var(--mono);">REQUIRED COURSES</span></div>
+
+      <div class="sec-div">그룹 과정 — 봄·가을 학기</div>
+      <div class="check-group" id="requiredGroup">
+
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="필수과정" value="생명의 삶 (Living Life)">
+          <div class="check-label">
+            <strong>생명의 삶 (생삶)</strong> <span class="badge badge-req">필수 1순위</span>
+            <span>Living Life · 봄(2월) · 여름(6월) · 가을(9월) 개강 · 인원제한 없음</span>
+          </div>
+        </label>
+
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="필수과정" value="예수님을 따르는 삶 (MY316)">
+          <div class="check-label">
+            <strong>예수님을 따르는 삶 (예따삶)</strong> <span class="badge badge-req">선택필수</span>
+            <span>MY316 · 봄·가을 학기 · 3명↑ 개강</span>
+          </div>
+        </label>
+
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="필수과정" value="새교회의 삶 (New Church Life)">
+          <div class="check-label">
+            <strong>새교회의 삶</strong> <span class="badge badge-req">선택필수</span>
+            <span>New Church Life · 봄·가을 학기 · 3명↑ 개강</span>
+          </div>
+        </label>
+
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="필수과정" value="새로운 삶 (New Life)">
+          <div class="check-label">
+            <strong>새로운 삶</strong> <span class="badge badge-req">선택필수</span>
+            <span>New Life · 봄·가을 학기 · 3명↑ 개강</span>
+          </div>
+        </label>
+
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="필수과정" value="경건의 삶 (Devotional Life)">
+          <div class="check-label">
+            <strong>경건의 삶</strong> <span class="badge badge-req">필수</span>
+            <span>Devotional Life · 봄·가을 학기 · 3명↑ 개강</span>
+          </div>
+        </label>
+
+      </div>
+
+      <div class="sec-div" style="margin-top:20px;">1:1 과정 — 수시 진행</div>
+      <div class="check-group">
+
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="필수과정" value="확신의 삶 (Assured Life)">
+          <div class="check-label">
+            <strong>확신의 삶</strong> <span class="badge badge-anytime">수시 1:1</span>
+            <span>Assured Life · 7주 · 목자↔목원 · Survival Kit (랄프 네이버)</span>
+          </div>
+        </label>
+
+        <label class="check-item" onclick="toggleCheck(this)">
+          <input type="checkbox" name="필수과정" value="하나님을 경험하는 삶 (Experiencing God Life)">
+          <div class="check-label">
+            <strong>하나님을 경험하는 삶 (하경삶)</strong> <span class="badge badge-anytime">수시 1:1</span>
+            <span>Experiencing God · 13주 · 대표목사↔예비목자 · 목자 임명 전</span>
+          </div>
+        </label>
+
+      </div>
+    </div>
+
+    <!-- 선택 과정 -->
+    <div class="card">
+      <div class="card-title">🎯 선택 과정 신청 <span style="font-size:11px;font-weight:400;color:var(--gray);font-family:var(--mono);">ELECTIVE COURSES · 봄·가을 학기 · 3명↑</span></div>
+
+      <div class="sec-div">관계 & 가정</div>
+      <div class="check-group">
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="이성교제의 삶"><div class="check-label"><strong>이성교제의 삶</strong><span>Dating Life · 성경적 이성교제 원칙</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="커플의 삶"><div class="check-label"><strong>커플의 삶</strong><span>Couple Life · 결혼 준비 커플 훈련</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="언약의 삶"><div class="check-label"><strong>언약의 삶</strong><span>Covenant Life · 혼전 준비·부부 회복</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="부부의 삶"><div class="check-label"><strong>부부의 삶</strong><span>Married Life · 부부 동역자 훈련</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="부모의 삶"><div class="check-label"><strong>부모의 삶</strong><span>Parent Life · 성경적 자녀 양육</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="싱글의 삶"><div class="check-label"><strong>싱글의 삶</strong><span>Single Life · 싱글로서 하나님 안에서 완전한 삶</span></div></label>
+      </div>
+
+      <div class="sec-div">사역 & 소명</div>
+      <div class="check-group">
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="전도의 삶"><div class="check-label"><strong>전도의 삶</strong><span>Evangelism Life · VIP 관계 전도</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="선교의 삶"><div class="check-label"><strong>선교의 삶</strong><span>Missional Life · 일상 속 선교 실천</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="목자·목녀의 삶"><div class="check-label"><strong>목자·목녀의 삶</strong><span>Shepherd Life · 목장 인도 훈련</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="소명의 삶"><div class="check-label"><strong>소명의 삶</strong><span>Vocational Life · 직업과 하나님의 소명</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="일터의 삶"><div class="check-label"><strong>일터의 삶</strong><span>Workplace Life · 일터를 선교지로</span></div></label>
+      </div>
+
+      <div class="sec-div">영적 훈련</div>
+      <div class="check-group">
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="행복한 삶"><div class="check-label"><strong>행복한 삶</strong><span>Happy Life · 하나님 안에서 참된 기쁨</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="말씀의 삶"><div class="check-label"><strong>말씀의 삶</strong><span>Word Life · 귀납적 성경 연구</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="말씀 중보기도의 삶"><div class="check-label"><strong>말씀 중보기도의 삶</strong><span>Intercessory Life · 목장·교회·열방을 위한 기도</span></div></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox" name="선택과정" value="뿌리내린 삶"><div class="check-label"><strong>뿌리내린 삶</strong><span>Rooted Life · 이민자 정체성·문화·신앙 통합</span></div></label>
+      </div>
+    </div>
+
+    <!-- 희망 학기 & 기타 -->
+    <div class="card">
+      <div class="card-title">📅 신청 정보</div>
+
+      <div class="field">
+        <label>희망 학기 <span class="req">*</span></label>
+        <select name="희망학기" required>
+          <option value="">선택해 주세요</option>
+          <option>2026 봄 학기 (2월 개강)</option>
+          <option>2026 여름 — 생삶만 (6월 개강)</option>
+          <option>2026 가을 학기 (9월 개강)</option>
+          <option>2027 봄 학기 (2월 개강)</option>
+          <option>수시 (1:1 과정)</option>
+          <option>미정 — 상담 후 결정</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>삶 공부 이수 현황</label>
+        <input type="text" name="이수현황" placeholder="예: 생삶 수료, 확신의 삶 수료 등 (없으면 공란)">
+      </div>
+
+      <div class="field">
+        <label>문의 사항 또는 전하실 말씀</label>
+        <textarea name="메모" placeholder="궁금한 점, 특별한 상황, 목자 추천 등 자유롭게 적어주세요."></textarea>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <button type="submit" class="btn-submit">✉️ 수강 신청서 제출하기</button>
+
+  </form>
+
+  <div class="footer">
+    시애틀지구촌교회 · 4900 168th St. SW Lynnwood, WA 98037<br>
+    425-350-0191 · admin.gmcseattle@gmail.com · ijiguchon.org<br>
+    <span style="font-style:italic;font-size:11px;">"시애틀에서 지구촌 땅 끝까지 — 잃어버린 영혼을 찾아, 제자를 만들어 파송한다."</span>
+  </div>
+
+</div>
+
+<script>
+function toggleCheck(label){
+  setTimeout(()=>{
+    const cb = label.querySelector('input');
+    if(cb.checked) label.classList.add('checked');
+    else label.classList.remove('checked');
+  },0);
+}
+
+// Formspree AJAX submit
+document.getElementById('regForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = this.querySelector('.btn-submit');
+  btn.textContent = '⏳ 제출 중...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://formspree.io/f/xzzbbpwg', {
+      method:'POST',
+      body: new FormData(this),
+      headers:{'Accept':'application/json'}
+    });
+    if(res.ok){
+      this.style.display='none';
+      document.getElementById('successBox').classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    } else {
+      btn.textContent = '❌ 오류 발생 — 다시 시도해 주세요';
+      btn.disabled = false;
+    }
+  } catch(err){
+    btn.textContent = '❌ 네트워크 오류 — 다시 시도해 주세요';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
